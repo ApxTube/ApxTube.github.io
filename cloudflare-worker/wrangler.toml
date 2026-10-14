@@ -1,0 +1,8 @@
+name = "auralis-search-api"
+main = "worker.js"
+compatibility_date = "2026-10-14"
+
+[vars]
+# Set this to your exact GitHub Pages origin, e.g. https://YOUR-USERNAME.github.io
+# Multiple origins can be comma-separated. Do not add the repository path.
+ALLOWED_ORIGINS = "https://YOUR-USERNAME.github.io"
