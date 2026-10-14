@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="description" content="Auralis — discover music and anime, explore series, and find official episode sources.">
+  <title>Auralis — Music & Anime Discovery</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Auralis home"><img src="assets/logo.svg" alt=""><span>Auralis</span><i>♪</i></a>
+      <div class="side-label">YOUR SPACE</div>
+      <button class="nav-item active" data-view="discover"><span>⌕</span> Discover</button>
+      <button class="nav-item" data-view="songs"><span>♫</span> Songs</button>
+      <button class="nav-item" data-view="videos"><span>▣</span> Videos</button>
+      <button class="nav-item" data-view="anime"><span>◈</span> Anime <small>NEW</small></button>
+      <button class="nav-item" data-view="trending"><span>↗</span> Trending</button>
+      <button class="nav-item" data-view="favorites"><span>♡</span> Liked songs <small id="likeCount">0</small></button>
+      <button class="nav-item" data-view="history"><span>◷</span> Recently played</button>
+      <div class="side-label library-label">YOUR LIBRARY</div>
+      <div class="library-note">Your liked tracks and recent plays stay on this device.</div>
+      <div class="sidebar-bottom">
+        <div class="mini-equalizer"><b></b><b></b><b></b><b></b><b></b></div>
+        <div><strong>Soundtrack your day.</strong><p>Find your next repeat.</p></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-menu" id="menuBtn" aria-label="Open menu">☰</button>
+        <div class="back-forward"><button class="icon-btn" id="backBtn" aria-label="Go back">‹</button><button class="icon-btn" id="forwardBtn" aria-label="Go forward">›</button></div>
+        <form class="search-wrap" id="searchForm" role="search">
+          <span class="search-icon">⌕</span>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Search songs, artists, albums, moods..." aria-label="Search music or anime">
+          <kbd>↵</kbd>
+          <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search">×</button>
+          <div class="suggestions" id="suggestions"></div>
+        </form>
+        <button class="avatar" id="settingsBtn" aria-label="Settings">A</button>
+      </header>
+
+      <section class="hero" id="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-dot"></span> YOUR DAILY SOUND</div>
+          <h1>Find the sound<br>that <em>feels like you.</em></h1>
+          <p>Search across music videos, discover artists, and make a library that’s yours.</p>
+          <div class="hero-actions"><button class="primary-btn" id="exploreBtn">Explore music <span>↗</span></button><button class="ghost-btn" id="surpriseBtn">✦ Surprise me</button></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="art-disc"><div class="disc-center">A</div></div>
+          <div class="floating-chip chip-top">NOW FEELING <b>✦</b></div>
+          <div class="floating-chip chip-bottom"><span class="sound-bars">▂ ▅ ▃ ▇ ▄</span> ON REPEAT</div>
+        </div>
+      </section>
+
+      <section class="quick-moods" aria-label="Browse by mood">
+        <button class="mood-pill selected" data-query="trending music">✦ For you</button>
+        <button class="mood-pill" data-query="chill music mix">☁ Chill</button>
+        <button class="mood-pill" data-query="workout music">⚡ Energy</button>
+        <button class="mood-pill" data-query="romantic songs">♡ Romance</button>
+        <button class="mood-pill" data-query="lofi beats">☾ Lo-fi</button>
+        <button class="mood-pill" data-query="soundtrack instrumental">♬ Instrumental</button>
+      </section>
+
+      <section class="content-section" id="resultsSection">
+        <div class="section-heading"><div><div class="eyebrow muted" id="sectionEyebrow">MADE FOR YOUR MOMENT</div><h2 id="sectionTitle">Discover something new</h2></div><div class="section-controls"><span id="resultMeta">Start with a search or explore below</span><button class="text-btn" id="seeAllBtn">See all ↗</button></div></div>
+        <div class="status-panel" id="statusPanel">
+          <div class="status-icon">⌕</div><h3>Your next favourite is out there.</h3><p>Search for a song, artist, album, or mood. Live search is provided by the site owner.</p>
+          <button class="secondary-btn" id="setupBtn">Set up live search</button>
+        </div>
+        <div class="track-grid" id="trackGrid"></div>
+      </section>
+
+      <section class="content-section features-section">
+        <div class="section-heading"><div><div class="eyebrow muted">A LITTLE MORE YOU</div><h2>Made for the way you listen</h2></div></div>
+        <div class="feature-grid">
+          <article class="feature-card feature-violet"><div class="feature-symbol">⌕</div><h3>Search with feeling</h3><p>Try an artist, a lyric fragment, a genre, or “late-night drive”.</p><span>DISCOVER YOUR NEXT LOOP</span></article>
+          <article class="feature-card feature-green"><div class="feature-symbol">♡</div><h3>Your own little library</h3><p>Like tracks and revisit recent plays on this device.</p><span>YOUR TASTE, YOUR SPACE</span></article>
+          <article class="feature-card feature-orange"><div class="feature-symbol">↓</div><h3>Downloads you’re allowed to keep</h3><p>Download direct audio files you own or are licensed to save.</p><span>CREATOR-APPROVED AUDIO</span></article>
+        </div>
+      </section>
+      <footer><span>© <span id="year"></span> Auralis</span><span>Music discovery, made personal.</span><a href="https://www.youtube.com/t/terms" target="_blank" rel="noreferrer">YouTube Terms</a></footer>
+    </main>
+  </div>
+
+  <section class="player-bar" id="playerBar" aria-label="Music player">
+    <div class="now-playing">
+      <div class="now-cover" id="nowCover"><span>♪</span></div>
+      <div class="now-info"><strong id="nowTitle">Nothing playing yet</strong><span id="nowArtist">Choose a track to get started</span></div>
+      <button class="like-btn" id="nowLike" aria-label="Like current track">♡</button>
+    </div>
+    <div class="player-controls">
+      <div class="control-row"><button class="player-control" id="shuffleBtn" aria-label="Shuffle">⤨</button><button class="player-control" id="prevBtn" aria-label="Previous track">|‹</button><button class="play-btn" id="playBtn" aria-label="Play or pause">▶</button><button class="player-control" id="nextBtn" aria-label="Next track">›|</button><button class="player-control" id="repeatBtn" aria-label="Repeat">↻</button></div>
+      <div class="progress-row"><span id="currentTime">0:00</span><div class="progress-track" id="progressTrack"><div class="progress-fill" id="progressFill"></div></div><span id="duration">--:--</span></div>
+    </div>
+    <div class="player-right"><button class="player-control" id="queueBtn" aria-label="Open queue">☷</button><button class="player-control" id="openVideoBtn" aria-label="Open video">▣</button><div class="volume"><span>♪</span><input type="range" id="volumeSlider" min="0" max="100" value="70" aria-label="Volume"></div></div>
+  </section>
+
+  <div class="toast" id="toast" role="status"></div>
+  <dialog id="settingsDialog" class="modal">
+    <form method="dialog"><button class="modal-close" aria-label="Close">×</button></form>
+    <div class="eyebrow muted">PERSONALISE AURALIS</div><h2>Make it yours.</h2>
+    <p class="modal-description">Auralis uses a secure search service so the YouTube API key stays on the server and is not published in this website's JavaScript.</p>
+    <label for="workerUrlInput">Search service URL (site owner setup)</label>
+    <input id="workerUrlInput" type="url" placeholder="https://your-worker.your-subdomain.workers.dev" autocomplete="url">
+    <div class="modal-actions"><button class="ghost-btn" id="removeApiUrlBtn">Clear local override</button><button class="primary-btn" id="saveApiUrlBtn">Save service URL</button></div>
+    <div class="modal-foot">Public site owners should set the default Worker URL in <code>config.js</code>. Never paste an API key here. <a href="https://developers.cloudflare.com/workers/configuration/secrets/" target="_blank" rel="noreferrer">Secure Worker secrets guide ↗</a></div>
+  </dialog>
+
+  <dialog id="animeDialog" class="modal anime-modal">
+    <form method="dialog"><button class="modal-close" aria-label="Close anime details">×</button></form>
+    <div class="anime-detail-layout">
+      <img id="animeDetailCover" class="anime-detail-cover" src="" alt="Anime cover">
+      <div class="anime-detail-copy"><div class="eyebrow muted" id="animeDetailEyebrow">ANIME GUIDE</div><h2 id="animeDetailTitle">Anime title</h2><div class="anime-detail-meta" id="animeDetailMeta"></div><p id="animeDetailDescription" class="modal-description"></p><div class="anime-genres" id="animeDetailGenres"></div></div>
+    </div>
+    <div class="anime-season-heading"><div><div class="eyebrow muted">WATCH GUIDE</div><h3>Seasons &amp; related parts</h3></div><span>Choose a part to see its episodes</span></div>
+    <div class="anime-season-list" id="animeSeasonList"></div>
+    <div class="anime-episode-heading"><h3 id="animeEpisodeHeading">Episodes</h3><span id="animeEpisodeMeta"></span></div>
+    <div class="anime-episode-grid" id="animeEpisodeGrid"></div>
+    <button type="button" class="ghost-btn anime-more-episodes" id="animeMoreEpisodes">Show more episodes</button>
+    <p class="anime-source-note">Episode buttons search YouTube for possible official uploads. Results are not automatically verified; choose a rights-holder or official channel. Auralis does not host episodes or scrape unofficial streaming sites.</p>
+  </dialog>
+
+  <dialog id="videoDialog" class="modal video-modal">
+    <form method="dialog"><button class="modal-close" aria-label="Close">×</button></form>
+    <div class="video-frame" id="videoFrame"><div class="video-placeholder">Choose a song to play.</div></div>
+    <div class="video-caption"><strong id="videoTitle">Now playing</strong><a id="youtubeLink" href="https://www.youtube.com/" target="_blank" rel="noreferrer">Open on YouTube ↗</a></div>
+  </dialog>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
